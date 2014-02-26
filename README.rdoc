@@ -4,17 +4,17 @@ Creating New Repository for Poly
 
 1]cd poly
 
-2]git init
+2]git init  
 
-4]git add README.md
+4]git add .    -----All files have created mode
 
 5]git commit -m "first commit"
 
-7]Go to Github.com and Create a new Repository With exact name as New-Repo and ---Uncheck the checkbox:- Initialize this repository with a README
+7]Go to Github.com and Create a new Repository With exact Repository name as Poly and ---Uncheck the checkbox:- Initialize this repository with a README
 
-8]Copy https://github.com/amolplay/New-Repo.git which is generated on next page
+8]Copy https://github.com/amolplay/poly.git which is generated on next page (Bcoz we selected HTTP protocol)
 
-8]git remote add origin https://github.com/amolplay/New-Repo.git
+8]git remote add origin https://github.com/amolplay/poly.git
 
 8]git push origin master
 
@@ -25,13 +25,14 @@ where-- content of README.md file displaying on index page of each repository
 ==========
 Push an existing repository from the command line
 
-git remote add origin https://github.com/amolplay/New-Repo.git
+git remote add origin https://github.com/amolplay/poly.git
 
-git push -u origin master
+git push origin master
 
+
+---------------------------------------------------------------------------
 ======
-
-
+	
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
