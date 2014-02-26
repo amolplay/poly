@@ -1,0 +1,31 @@
+<h1>Comments</h1>
+
+<table border="1">
+	<tr>
+		<th> S.No. </th>
+		<th>Comment</th>
+	</tr>
+
+	<% i = 1 %>
+	<% @comments.each do |c| %>
+		<tr>
+			<td><%= i %></td>
+			<td><%= c.content %></td>
+		</tr>
+		<% i = i + 1 %>
+		
+		
+	<% end %>
+</table>
+
+<%= form_for [@commentable, Comment.new] do |form| %>
+  <ol class="formList">
+    <li>
+      <%= form.label :content %>
+      <%= form.text_area :content, :rows => 5 %>
+    </li>
+    <li><%= submit_tag "Add Comment" %></li>
+  </ol>
+<% end %>
+
+<p><%= link_to "Back", @commentable %></p>

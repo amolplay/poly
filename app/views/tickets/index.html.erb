@@ -1,0 +1,35 @@
+<h1>Listing tickets</h1>
+<% @title="Tickets"  %>
+<!--<% if user_signed_in? %>
+ <p style="float: right">
+  <%= "#{current_user.email}" %>
+  <%= link_to "Sign out",destroy_user_session_path, method: :delete %> 
+  </p>
+<% end %>-->
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.title %></td>
+        <td><%= ticket.description %></td>
+        <td><%= link_to 'Show', ticket %></td>
+        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket', new_ticket_path %>

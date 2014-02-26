@@ -1,0 +1,9 @@
+<%= form_for [@commentable, @comment] do |form| %>
+  <div class="formList">
+    <% form.label :content %>
+    <%= form.text_area :content, :rows => 2 ,:placeholder => "Update Comment"%>
+    <%= submit_tag "Update Comment" %>
+    <%= link_to "Back", @commentable %>
+  </div>
+  
+<% end %>

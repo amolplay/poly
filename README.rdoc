@@ -1,0 +1,60 @@
+== README
+
+Creating New Repository for Poly
+
+1]cd poly
+
+2]git init
+
+4]git add README.md
+
+5]git commit -m "first commit"
+
+7]Go to Github.com and Create a new Repository With exact name as New-Repo and ---Uncheck the checkbox:- Initialize this repository with a README
+
+8]Copy https://github.com/amolplay/New-Repo.git which is generated on next page
+
+8]git remote add origin https://github.com/amolplay/New-Repo.git
+
+8]git push origin master
+
+9]Go to respective page and Reload(Refresh that page then u can see that New-Repo created with Test.txt)
+
+where-- content of README.md file displaying on index page of each repository
+
+==========
+Push an existing repository from the command line
+
+git remote add origin https://github.com/amolplay/New-Repo.git
+
+git push -u origin master
+
+======
+
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.

@@ -1,0 +1,87 @@
+<style>
+li
+{
+   display: inline;
+
+}
+ul.nav_list
+{
+   padding-top: 20px;
+   background-color: #198541;
+   border-radius: 55px;
+   height: 35px;
+}
+
+
+.nav_list a:link
+{
+   transition:font-size,color 1s;     /* use transition property*/
+   font-weight:bold;
+   color:#FFFFFF;
+   background-color:#98bf21;
+   width:120px;
+   text-align:center;
+   text-decoration:none;
+   padding:08px         /* padding from all sides */
+   
+   
+}
+
+.nav_list a:visited
+{
+   transition:font-size,color 1s;     /* use transition property*/
+   font-weight:bold;
+   color:#FFFFFF;
+   background-color:#98bf21;
+   width:120px;
+   text-align:center;
+   text-decoration:none;
+   padding:08px         /* padding from all sides */
+   
+   
+}
+
+
+.nav_list a:hover
+{
+   background-color: #D51C26;
+   padding:15px;
+   font-size: large;
+   color: #000000;
+}
+
+#user_mail
+{
+  float: right;
+  font-size: larger;
+  font-weight: bolder;
+  color: #FFFFFF;
+}
+  </style>  
+
+<div class="main">
+  <marquee><h1>Home Page</h1></marquee>
+  </div>
+
+
+<ul class="nav_list">
+  
+  <% if user_signed_in? %>
+    
+ <li id="user_mail"><%= "#{current_user.email}" %></li>
+   
+ <li><%= link_to "List Messages", messages_path %></li>
+  <li><%= link_to "List Tickets", tickets_path %></li>
+  <li><%= link_to "Sign out",destroy_user_session_path, method: :delete %> </li>
+  <% else %>
+    <li><%= link_to "SignUp", new_user_registration_path   %> </li>
+  <li><%= link_to "SignIn", new_user_session_path   %> </li>
+  
+  <% end %>
+  
+  
+</ul>
+
+
+
+

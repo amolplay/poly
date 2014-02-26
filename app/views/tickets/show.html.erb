@@ -1,0 +1,88 @@
+<script>
+  $(document).ready(function()
+  {
+    
+    $("#addcomment").click(function(e)
+    {
+      e.preventDefault();
+      $("#frm_add_comment").fadeIn();
+    })
+    
+  })
+  
+</script>
+
+<p id="notice"><%= notice %></p>
+<% if(flash[:error]) %>
+<p id="error_explanation""><strong><%= flash[:error] %></strong></p>
+<% end %> 
+
+<p>
+  <strong>Title:</strong>
+  <%= @ticket.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ticket.description %>
+</p>
+
+<% if @ticket.comments.any? %>
+	<h4> Listing Comments </h4>
+	<% i = 1 %>
+	
+	<table border="1px solid black">
+          <tr>
+            <td>Sr.No</td>
+            <td>Comments</td>
+            <td>Created_at</td>
+            <td></td>
+            <td></td>
+            <td>Posted_by</td>
+          </tr>
+	
+	<% @ticket.comments.each do |ticket_comment| %>
+		<tr>
+                  <td><%= i %></td>
+                  <td><%= ticket_comment.content %></td>
+                  <td><%= ticket_comment.created_at %></td>
+                  <td><%= link_to "Edit", [:edit, ticket_comment.commentable, ticket_comment] %></td>    
+                  <td><%= link_to "Destroy",[@ticket,ticket_comment],method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= ticket_comment.user.email %> </td>
+                </tr>
+		<% i = i + 1 %>
+	<% end %>
+	</table>
+<% else %>
+	No Comments for this ticket "<em><%= @ticket.title %></em>"
+<% end %>
+
+
+
+<br><a id="addcomment" href="">Add Comments</a>
+  <a id="removecomment" href="">Remove Comments</a>
+
+
+
+
+<div id="frm_add_comment" style="display: none"> 
+<%= form_for [@ticket, Comment.new] do |form| %>
+  <div class="formList">
+    
+      <% form.label :content %>
+      <%= form.text_area :content, :rows => 2, :placeholder => "Add Comment" %>
+    
+    <%= submit_tag "Add Comment" %>
+  </div>  
+<% end %>
+
+</div
+
+
+
+
+<br /><br />
+
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>
